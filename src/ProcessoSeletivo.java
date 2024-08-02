@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) {
-        double salarioBase = 2000;
+        double salarioBase = 2000.0;
         ArrayList<String> nomes = new ArrayList<>();
         ArrayList<Double> salarios = new ArrayList<>();
 
