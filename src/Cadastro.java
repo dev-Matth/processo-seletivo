@@ -12,9 +12,11 @@ public class Cadastro {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+		
 	}
 
 	public void setSalarioPretendido(Double salario) {
 		this.salarioPretendido = salario;
+
 	}
 }
