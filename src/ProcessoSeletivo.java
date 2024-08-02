@@ -10,10 +10,9 @@ public class ProcessoSeletivo {
         Cadastro cadastro = new Cadastro();
     
         double salarioBase = 2000.0;
-    
-        do{    
+        
             try (Scanner entrada = new Scanner(System.in).useLocale(Locale.US)){
-            
+                do {
                 System.out.println("Digite o seu nome:");
                     String nome = entrada.next();
                     cadastro.setNome(nome);       
@@ -24,19 +23,20 @@ public class ProcessoSeletivo {
 
                     if(salarioBase > salarioPretendido){
                         System.out.println("Ligar para o Candidato");
-                        soma  ++;
+                            soma  ++;
                     }else if(salarioBase == salarioPretendido){                   
                         System.out.println("Ligar para o candidato com contra proposta.");
-                        soma  ++;
+                            soma  ++;
                     }else{
                         System.out.println("Aguardar o resultado dos outros candidatos.");
+                            soma ++;
                     }
+                
+                } while (soma < 5);
                     
             }catch (InputMismatchException e){
                 System.out.println("Informações inválidas.");
             }
-            
-        } while (soma <= 5);
 
         System.out.println("O candidato " + cadastro.getNome() + " Solicitou este valor de salário " + cadastro.getSalarioPretendido());
             if(salarioBase >= cadastro.getSalarioPretendido()){
