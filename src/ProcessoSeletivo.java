@@ -1,62 +1,42 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class ProcessoSeletivo {
-    
     public static void main(String[] args) {
-    
-        int salarioBase = 2000;
-        ArrayList <Nomes> nomes = new ArrayList <Nomes> ();
-        ArrayList <Salarios> salarios = new ArrayList <Salarios> ();
-            
-            try (Scanner entrada = new Scanner(System.in).useLocale(Locale.US)){                
-                for(int i=0; i < 2; i++){
-                    Nomes candidatoNome = new Nomes ();
-                    Salarios candidatoSalario = new Salarios ();
-                do {
+        double salarioBase = 2000;
+        ArrayList<String> nomes = new ArrayList<>();
+        ArrayList<Double> salarios = new ArrayList<>();
+
+        try (Scanner entrada = new Scanner(System.in).useLocale(Locale.US)) {
+            for (int i = 0; i < 5; i++) {
                 System.out.println("Digite o seu nome:");
-                    String nome = entrada.next();    
-                    candidatoNome.setNome(nome);
+                String nome = entrada.next();
+                nomes.add(nome);
 
-                System.out.println("Digite o salário pretendido (valor inteiro):");
-                int salarioPretendido = entrada.nextInt();
-                    candidatoSalario.setSalarioPretendido(salarioPretendido);
+                System.out.println("Digite o salário pretendido:");
+                double salarioPretendido = entrada.nextDouble();
+                salarios.add(salarioPretendido);
 
-                    if(salarioBase > salarioPretendido){
-                        System.out.println("Ligar para o Candidato");
-                            i  ++;
-                    }else if(salarioBase == salarioPretendido){                   
-                        System.out.println("Ligar para o candidato com contra proposta.");
-                            i  ++;
-                    }else{
-                        System.out.println("Aguardar o resultado dos outros candidatos.");
-                            i ++;
-                    }
-                    nomes.add(candidatoNome);
-                    salarios.add(candidatoSalario);  
-
-                } while (i < 2);
+                if (salarioBase > salarioPretendido) {
+                    System.out.println("Ligar para o Candidato");
+                } else if (salarioBase == salarioPretendido) {
+                    System.out.println("Ligar para o candidato com contra proposta.");
+                } else {
+                    System.out.println("Aguardar o resultado dos outros candidatos.");
                 }
-                entrada.close();
-            }catch (InputMismatchException e){
-                System.out.println("Informações inválidas.");
             }
-            
-    for(int i=0; i < 2; i++){
-    do{
-    System.out.println("O candidato " + nomes.get(i) + " Solicitou este valor de salário R$" + salarios.get(i));    
-        if(Salarios.getSalarios() <= salarioBase){
-            System.out.println("O candidato " + nomes.get(i) + " foi selecionado para a vaga.");
-            i ++;
-        }else{
-            System.out.println("O candidato está eliminado.");
-            i ++;
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
         }
-    } while (i < 2);
-    }
+
+        for (int i = 0; i < 5; i++) {
+            if (salarios.get(i) <= salarioBase) {
+                System.out.println("O candidato " + nomes.get(i) + " foi selecionado para a vaga.");
+            } else {
+                System.out.println("O candidato " + nomes.get(i) + " está eliminado.");
+            }
+        }
     }
 }
-
-   
