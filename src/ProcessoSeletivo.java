@@ -8,19 +8,21 @@ public class ProcessoSeletivo {
     public static void main(String[] args) {
     
         int salarioBase = 2000;
-        ArrayList <Candidatos> usuarios = new ArrayList <Candidatos> ();
+        ArrayList <Nomes> nomes = new ArrayList <Nomes> ();
+        ArrayList <Salarios> salarios = new ArrayList <Salarios> ();
             
-        try (Scanner entrada = new Scanner(System.in).useLocale(Locale.US)){                
-                for(int i=0; i < 1; i++){
-                    Candidatos pessoa = new Candidatos ();
+            try (Scanner entrada = new Scanner(System.in).useLocale(Locale.US)){                
+                for(int i=0; i < 2; i++){
+                    Nomes candidatoNome = new Nomes ();
+                    Salarios candidatoSalario = new Salarios ();
                 do {
                 System.out.println("Digite o seu nome:");
                     String nome = entrada.next();    
-                    pessoa.setNome(nome);
+                    candidatoNome.setNome(nome);
 
                 System.out.println("Digite o salário pretendido (valor inteiro):");
-                    int salarioPretendido = entrada.nextInt();
-                    pessoa.setSalarioPretendido(salarioPretendido);
+                int salarioPretendido = entrada.nextInt();
+                    candidatoSalario.setSalarioPretendido(salarioPretendido);
 
                     if(salarioBase > salarioPretendido){
                         System.out.println("Ligar para o Candidato");
@@ -32,20 +34,29 @@ public class ProcessoSeletivo {
                         System.out.println("Aguardar o resultado dos outros candidatos.");
                             i ++;
                     }
-                    usuarios.add(pessoa);                                 
-                } while (i < 1);
+                    nomes.add(candidatoNome);
+                    salarios.add(candidatoSalario);  
+
+                } while (i < 2);
                 }
-                    
+                entrada.close();
             }catch (InputMismatchException e){
                 System.out.println("Informações inválidas.");
             }
-
-    System.out.println("O candidato " + usuarios.get(0) + " Solicitou este valor de salário R$" + Candidatos.getSalarioPretendido());
-        /*if(salarioBase >= SalarioPretendido()){
-            System.out.println("O candidato " + cadastro.getNome() + " foi selecionado para a vaga.");
+            
+    for(int i=0; i < 2; i++){
+    do{
+    System.out.println("O candidato " + nomes.get(i) + " Solicitou este valor de salário R$" + salarios.get(i));    
+        if(Salarios.getSalarios() <= salarioBase){
+            System.out.println("O candidato " + nomes.get(i) + " foi selecionado para a vaga.");
+            i ++;
         }else{
             System.out.println("O candidato está eliminado.");
-        }*/
+            i ++;
+        }
+    } while (i < 2);
+    }
     }
 }
+
    
