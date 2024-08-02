@@ -24,8 +24,7 @@ public class ProcessoSeletivo {
                     System.out.println("Aguardando o resultado dos demais candidatos.");
                 }
         }catch (Exception e){
-            System.out.println("Valor inválido!");
-
+            System.out.println("Valor inválido.");
         }                         
     }
 }
